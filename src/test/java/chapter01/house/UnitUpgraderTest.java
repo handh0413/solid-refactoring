@@ -11,8 +11,8 @@ public class UnitUpgraderTest {
     public void testUpgraderIncreasesSquareFootageOfPenthouse() {
         PenthouseSuite penthouse = new PenthouseSuite();
         penthouse.setSquareFootage(1500);
-        UnitUpgrader upgrader = new UnitUpgrader();
-        upgrader.upgrade(penthouse);
+        SquareFootageUpgrader upgrader = new SquareFootageUpgrader();
+        upgrader.penthouseSquareFootageUpgrade(penthouse);
 
         assertEquals(1540, penthouse.squareFootage);
     }
@@ -20,8 +20,8 @@ public class UnitUpgraderTest {
     @Test
     public void testUpgraderAddsBedroomToPenthouses() {
         PenthouseSuite penthouse = new PenthouseSuite();
-        UnitUpgrader upgrader = new UnitUpgrader();
-        upgrader.upgrade(penthouse);
+        BedroomUpgrader upgrader = new BedroomUpgrader();
+        upgrader.penthouseBedroomUpgrade(penthouse);
 
         assertEquals(5, penthouse.numberOfBedrooms);
     }
@@ -30,18 +30,9 @@ public class UnitUpgraderTest {
     public void testUpgraderIncreasesSquareFootageOfStudio() {
         Studio studio = new Studio();
         studio.setSquareFootage(550);
-        UnitUpgrader upgrader = new UnitUpgrader();
-        upgrader.upgrade(studio);
+        SquareFootageUpgrader upgrader = new SquareFootageUpgrader();
+        upgrader.studioSquareFootageUpgrade(studio);
 
         assertEquals(590, studio.squareFootage);
-    }
-
-    @Test
-    public void testUpgraderAddsBedroomToStudios() {
-        Studio studio = new Studio();
-        UnitUpgrader upgrader = new UnitUpgrader();
-        upgrader.upgrade(studio);
-
-        assertEquals(0, studio.numberOfBedrooms);
     }
 }
