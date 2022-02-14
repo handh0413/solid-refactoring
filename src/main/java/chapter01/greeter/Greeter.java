@@ -4,15 +4,11 @@ public class Greeter {
     String formality;
 
     public String greet() {
-        if (this.formality == "formal") {
-            return "Good evening, sir.";
-        } else if (this.formality == "casual") {
-            return "Sup bro?";
-        } else if (this.formality == "intimate") {
-            return "Hello Darling!";
-        } else {
-            return "Hello.";
-        }
+        // alt + enter > create class ~
+        // alt + enter > join declaration and assignment
+        PersonalityFactory factory = PersonalityFactory.getInstance();
+        Personality personality = factory.getPersonality(formality);
+        return personality.greet();
     }
 
     public void setFormality(String formality) {
