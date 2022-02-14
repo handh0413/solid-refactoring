@@ -26,7 +26,8 @@ public class BoardTest {
         rowOne.add("1");
         rowOne.add("2");
 
-        assertEquals(rowOne, board.firstRow());
+        BoardShaper boardShaper = new BoardShaper(board);
+        assertEquals(rowOne, boardShaper.firstRow());
     }
 
     @Test
@@ -37,7 +38,8 @@ public class BoardTest {
         rowTwo.add("4");
         rowTwo.add("5");
 
-        assertEquals(rowTwo, board.secondRow());
+        BoardShaper boardShaper = new BoardShaper(board);
+        assertEquals(rowTwo, boardShaper.secondRow());
     }
 
     @Test
@@ -48,14 +50,17 @@ public class BoardTest {
         rowThree.add("7");
         rowThree.add("8");
 
-        assertEquals(rowThree, board.thirdRow());
+        BoardShaper boardShaper = new BoardShaper(board);
+        assertEquals(rowThree, boardShaper.thirdRow());
     }
 
     @Test
     public void testPrintsBoardToConsole() {
         Board board = new Board();
         System.setOut(new PrintStream(outContent));
-        board.display();
+
+        BoardPresenter boardPresenter = new BoardPresenter(board);
+        boardPresenter.display();
         assertEquals("0 | 1 | 2\n3 | 4 | 5\n6 | 7 | 8", outContent.toString());
     }
 }
