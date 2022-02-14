@@ -18,13 +18,6 @@ public class PenguinTest {
     }
 
     @Test
-    public void testItCantActuallyFly() {
-        Penguin penguin = new Penguin(5);
-        exception.expect(UnsupportedOperationException.class);
-        penguin.fly();
-    }
-
-    @Test
     public void testItCanSwim() {
         Penguin penguin = new Penguin(5);
         penguin.swim();

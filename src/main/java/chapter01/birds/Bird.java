@@ -1,7 +1,10 @@
 package chapter01.birds;
 
-public interface Bird {
-    public void fly();
+public abstract class Bird {
+    String currentLocation;
+    int numberOfFeathers;
 
-    public void molt();
+    public Bird(int initialFeatherCount) {
+        this.numberOfFeathers = initialFeatherCount;
+    }
 }

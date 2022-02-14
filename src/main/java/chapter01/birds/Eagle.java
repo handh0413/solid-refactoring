@@ -1,11 +1,9 @@
 package chapter01.birds;
 
-public class Eagle implements Bird {
-    String currentLocation;
-    int numberOfFeathers;
+public class Eagle extends Bird implements Flyable, Moltable {
 
     public Eagle(int initialFeatherCount) {
-        this.numberOfFeathers = initialFeatherCount;
+        super(initialFeatherCount);
     }
 
     @Override
