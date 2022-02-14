@@ -21,15 +21,15 @@ public class WeatherTrackerTest {
     public void testAlertsPhoneUsersWhenRaining() {
         WeatherTracker tracker = new WeatherTracker();
         System.setOut(new PrintStream(outContent));
-        tracker.setCurrentConditions("rainy");
-        assertEquals("It is rainy", outContent.toString());
+        Phone phone = new Phone();
+        assertEquals("It is rainy", phone.generateWeatherAlert("rainy"));
     }
 
     @Test
     public void testAlertsViaEmailWhenSunny() {
         WeatherTracker tracker = new WeatherTracker();
         System.setOut(new PrintStream(outContent));
-        tracker.setCurrentConditions("sunny");
-        assertEquals("It is sunny", outContent.toString());
+        Email email = new Email();
+        assertEquals("It is sunny", email.generateWeatherAlert("sunny"));
     }
 }

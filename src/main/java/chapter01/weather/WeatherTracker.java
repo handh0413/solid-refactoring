@@ -1,24 +1,22 @@
 package chapter01.weather;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class WeatherTracker {
     String currentConditions;
-    Phone phone;
-    Email email;
+    List<Notifier> notifiers;
 
     public WeatherTracker() {
-        phone = new Phone();
-        email = new Email();
+        notifiers = new ArrayList<>();
+        notifiers.add(new Phone());
+        notifiers.add(new Email());
     }
 
     public void setCurrentConditions(String weatherDescription) {
         this.currentConditions = weatherDescription;
-        if (weatherDescription == "rainy") {
-            String alert = phone.generateWeatherAlert(weatherDescription);
-            System.out.print(alert);
-        }
-        if (weatherDescription == "sunny") {
-            String alert = email.generateWeatherAlert(weatherDescription);
-            System.out.print(alert);
+        for (Notifier notifier : notifiers) {
+            notifier.generateWeatherAlert(weatherDescription);
         }
     }
 }
